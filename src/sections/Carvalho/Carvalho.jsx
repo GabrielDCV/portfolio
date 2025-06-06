@@ -21,6 +21,12 @@ function Carvalho() {
   const githubIcon = theme === 'light' ? githubLight : githubDark;
   const instagramIcon = theme === 'light' ? instagramLight : instagramDark;
 
+  const cvMap = {
+    en: CVen,
+    pt: CVpt,
+    fr: CVfr
+  };
+
   const currentCV = cvMap[texts.language];
 
   return (
