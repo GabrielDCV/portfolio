@@ -1,7 +1,5 @@
 import styles from './CarvalhoStyles.module.css';
 import spideygab from '../../assets/spideygab.png';
-import sun from '../../assets/sun.svg';
-import moon from '../../assets/moon.svg';
 import linkedinLight from '../../assets/linkedin light.png';
 import linkedinDark from '../../assets/linkedin dark.png';
 import githubLight from '../../assets/github light.png';
@@ -14,25 +12,14 @@ import CVpt from '../../assets/Gabriel Carvalho Resume.pdf';
 import {useTheme} from '../../common/ThemeContext';
 import { useContext } from 'react';
 import { LanguageContext } from '../../common/LanguageContext';
-import flagPT from '../../assets/brasil.png';
-import flagEN from '../../assets/england.png';
-import flagFR from '../../assets/france.png';
 
 function Carvalho() {
-  const { theme, toggleTheme} = useTheme();
-  const { texts, toggleLanguage, nextFlag } = useContext(LanguageContext);
+  const { theme } = useTheme();
+  const { texts } = useContext(LanguageContext);
 
-  const themeIcon = theme === 'light' ? sun : moon;
   const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
   const githubIcon = theme === 'light' ? githubLight : githubDark;
   const instagramIcon = theme === 'light' ? instagramLight : instagramDark;
-
-  const flagIcons = {
-    en: flagEN,
-    pt: flagPT,
-    fr: flagFR
-  };
-  const nextFlagIcon = flagIcons[nextFlag];
 
   const cvMap = {
     en: CVen,
@@ -46,10 +33,7 @@ function Carvalho() {
     <section id='carvalho' className={styles.container}>
       <div className={styles.colorModeContainer}> 
         <img className={styles.carvalho} src={spideygab} alt="Profile Picture of Gabriel Vasconcelos" />
-        <div className={styles.iconWrapper}>
-          <img className={styles.colorMode} src={themeIcon} alt="Color mode icon" onClick={toggleTheme}/>
-          <img className={styles.languageToggle} src={nextFlagIcon} alt="Switch language" onClick={toggleLanguage} />
-        </div>
+        {/* Removidos os ícones de troca de tema e linguagem */}
       </div>
     
       <div className={styles.info}>
@@ -57,16 +41,13 @@ function Carvalho() {
         <h2>{texts.header.role}</h2>
         <span>
           <a href="https://linkedin.com/in/gabrieldcv/" target="_blank">
-        <img src={linkedinIcon} alt="LinkedIn Icon" />
-        </a>
-
-        <a href="https://github.com/gabrieldcv/" target="_blank">
-        <img src={githubIcon} alt="GitHub Icon" />
-        </a>
-
-      </span>
-      <p className={styles.description}>{texts.header.description}</p>
-
+            <img src={linkedinIcon} alt="LinkedIn Icon" />
+          </a>
+          <a href="https://github.com/gabrieldcv/" target="_blank">
+            <img src={githubIcon} alt="GitHub Icon" />
+          </a>
+        </span>
+        <p className={styles.description}>{texts.header.description}</p>
         <a href={currentCV} download>
           <button className="hover">{texts.header.resume}</button>
         </a>

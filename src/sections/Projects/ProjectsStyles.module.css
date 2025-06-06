@@ -36,3 +36,9 @@
       padding: 0 30px;
     }
   }
+
+.centeredProject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
